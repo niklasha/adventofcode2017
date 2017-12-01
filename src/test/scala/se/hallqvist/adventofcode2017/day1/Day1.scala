@@ -48,6 +48,12 @@ class Day1 extends FlatSpec {
     a.zipWithIndex.map { case (d, i) => if (d == a((i + 1) % a.length)) d else 0 }.sum
   }
 
+  "part1" should "satisfy the examples given" in {
+    assertResult(3) { part1("1122") }
+    assertResult(4) { part1("1111") }
+    assertResult(0) { part1("1234") }
+    assertResult(9) { part1("91212129") }
+  }
   "part1" should "succeed" in { info(part1(input).toString) }
 
   def part2(s: String) = {
@@ -55,5 +61,12 @@ class Day1 extends FlatSpec {
     a.zipWithIndex.map { case (d, i) => if (d == a((i + a.length / 2) % a.length)) d else 0 }.sum
   }
 
+  "part2" should "satisfy the examples given" in {
+    assertResult(6) { part2("1212") }
+    assertResult(0) { part2("1221") }
+    assertResult(4) { part2("123425") }
+    assertResult(12) { part2("123123") }
+    assertResult(4) { part2("12131415") }
+  }
   "part2" should "succeed" in { info(part2(input).toString) }
 }
