@@ -88,9 +88,9 @@ class Day2 extends FlatSpec {
       val nums = r.split("\\s+").map(_.toInt)
       nums.map((n) => {
         nums.find((m) => m != n && m % n == 0) match {
-	  case Some(m) => m / n
-	  case None => 0
-	}	
+          case Some(m) => m / n
+          case None => 0
+        }	
       }).find(_ != 0).get
     }).sum
   }
