@@ -62,7 +62,7 @@ class Day3 extends FlatSpec {
     def area(r: Int) = (2 * r + 1) * (2 * r + 1)
     def circumference(r: Int) = 8 * r + 8
     // for every radius the circumference is split in four sides:
-    // east, north, west and south each a 4th in legth and offset an 8th
+    // east, north, west and south each a 4th in length and offset an 8th
     // making east use 0-c/8 and 7/8*c - c, the corners can go either way.
     // It's important to get to the axis, which s done by just moving 1
     // step
@@ -182,17 +182,19 @@ class Day3 extends FlatSpec {
     val m = mutable.Map[(Int, Int), Int]()
     var p = (0, 0)
     m(p) = 1
-    while (m(p) < s) {
+    while (m(p) <= s) {
       p = xy(i)
       m(p) = (-1 to 1).map((x) => { (-1 to 1).map((y) => m.getOrElse((p._1 + x, p._2 + y), 0)).sum }).sum
-      info(s"$i $p ${m(p)}")
+//      info(s"$i $p ${m(p)}")
       i += 1
     }
     m(p)
   }
 
   "part2" should "satisfy the examples given" in {
-    //assertResult("") { part2("") }
+    assertResult(10) { part2(5) }
+    assertResult(54) { part2(50) }
+    assertResult(747) { part2(500) }
   }
 
   "part2" should "succeed" in { info(part2(input).toString) }
