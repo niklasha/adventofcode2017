@@ -87,7 +87,6 @@ class Day16 extends FlatSpec {
       var cs = new Array[Char](progs.size)
       for (j <- 0 until ps.size) cs(j) = p.charAt(ps(j).charAt(0) - 'a')
       p = cs.mkString
-      if (i % 1000000 == 0) println(i.toString)
     }
     p
   }
