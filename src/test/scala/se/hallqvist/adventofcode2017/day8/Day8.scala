@@ -1060,7 +1060,7 @@ pc dec 916 if vt <= 426"""
   }
 
   "part1" should "satisfy the examples given" in {
-    assertResult(10) { part1("""
+    assertResult(1) { part1("""
 b inc 5 if a > 1
 a inc 1 if b < 5
 c dec -10 if a >= 1
@@ -1096,7 +1096,12 @@ c inc -20 if c == 10
   }
 
   "part2" should "satisfy the examples given" in {
-    assertResult("") { part2("") }
+    assertResult(10) { part2("""
+b inc 5 if a > 1
+a inc 1 if b < 5
+c dec -10 if a >= 1
+c inc -20 if c == 10
+""") }
   }
   "part2" should "succeed" in { info(part2(input).toString) }
 }
